@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:getx_demo/feature/posts/presentation/pages/posts_page.dart';
-import '../../data/controllers/home_controller.dart';
+import 'package:getx_demo/feature/posts/view/posts_page.dart';
 
-class HomePage extends GetView<HomeController> {
+class HomePage extends GetView {
   const HomePage({super.key});
   @override
   Widget build(BuildContext context) {
@@ -18,16 +18,19 @@ class HomePage extends GetView<HomeController> {
       body: Center(
           child: GestureDetector(
         onTap: () {
-          Get.to(() => const PostsPage());
+          Get.to(() =>  PostsPage());
         },
         child: Container(
-            padding: const EdgeInsets.all(16),
+            padding:  EdgeInsets.all(16.h),
             decoration: BoxDecoration(
                 color: Colors.blueGrey,
                 borderRadius: BorderRadius.circular(10)),
-            child: const Text(
+            child: Text(
               "Get Post",
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16.sp),
             )),
       )),
     );

@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:getx_demo/feature/posts/presentation/pages/posts_page.dart';
-import '../../app/modules/home/bindings/home_binding.dart';
-import '../../feature/home/presentation/pages/home_page.dart';
+import 'package:getx_demo/binding/init_binding.dart';
+import 'package:getx_demo/feature/posts/view/posts_page.dart';
+import '../../feature/home/view/home_page.dart';
 
 part 'app_routes.dart';
 
@@ -14,12 +14,12 @@ class AppPages {
     GetPage(
       name: _Paths.HOME,
       page: () => const HomePage(),
-      binding: HomeBinding(),
+      binding: InitBinding(),
     ),
-     GetPage(
+    GetPage(
       name: _Paths.POSTS,
-      page: () => const PostsPage(),
-      binding: HomeBinding(),
+      page: () =>  PostsPage(),
+      binding: InitBinding(),
     ),
   ];
 }
