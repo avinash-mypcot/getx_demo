@@ -7,11 +7,13 @@ environment:
   sdk: ^3.5.3
 
 dependencies:
+  connectivity_plus: ^6.1.0
   flutter:
     sdk: flutter
   flutter_screenutil: ^5.9.3
   get: ^4.6.6
   http: ^1.2.2
+  zoom_tap_animation: ^1.1.0
 
 dev_dependencies:
   flutter_test:
