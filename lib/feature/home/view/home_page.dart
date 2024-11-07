@@ -4,15 +4,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:getx_demo/service/network_service.dart';
 import 'package:getx_demo/feature/posts/view/posts_page.dart';
-import 'package:getx_demo/service/theme_service.dart';
-
+import '../../../service/theme_service.dart';
 import '../../../service/translation_service.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
   final service = Get.find<ThemeService>();
-  final selectedLanguage = ''.obs; // Observable to store selected language
-
+  final selectedLanguage = ''.obs;  
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +28,7 @@ class HomePage extends StatelessWidget {
                 DropdownButton<String>(
                   value: selectedLanguage.value.isNotEmpty
                       ? selectedLanguage.value
-                      : Get.locale?.languageCode == 'hi'
+                      : Get.locale?.languageCode == 'hi_IN'
                           ? 'Hindi'
                           : 'English',
                   icon: const Icon(
@@ -51,7 +50,6 @@ class HomePage extends StatelessWidget {
                   ],
                   onChanged: (value) {
                     selectedLanguage.value = value ?? 'English';
-                    // Change locale based on selection
                     if (selectedLanguage.value == 'Hindi') {
                       Get.find<TranslationService>().changeLocale("hi", "IN");
                     } else {
@@ -71,9 +69,9 @@ class HomePage extends StatelessWidget {
                       activeTrackColor: Colors.white,
                       activeColor: Colors.white,
                       thumbColor: const WidgetStatePropertyAll(Colors.blueGrey),
-                      value: !service.isDarkTheme.value,
+                      value: service.isDarkTheme.value,
                       onChanged: (s) {
-                        service.changeTheme();
+                        service.changeTheme(s);
                       },
                     ),
                   ),
